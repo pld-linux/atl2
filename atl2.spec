@@ -21,9 +21,6 @@ Requires(post,postun):	/sbin/depmod
 %requires_releq_kernel
 Requires(postun):	%releq_kernel
 %endif
-Provides:	kernel(atl2)
-Obsoletes:	atl2
-Obsoletes:	linux-net-atl2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,9 +35,8 @@ Attansic(R) L2 Fast Ethernet Adapter.
 %setup -q -n atl2-%{version}
 
 cat > src/Makefile <<'EOF'
-CFILES = at_main.c at_hw.c at_param.c at_ethtool.c kcompat.c
 obj-m := atl2.o
-atl2-objs := $(CFILES:.c=.o)
+atl2-objs := at_main.o at_hw.o at_param.o at_ethtool.o kcompat.o
 EOF
 
 %build
