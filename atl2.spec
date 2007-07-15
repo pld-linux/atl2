@@ -5,7 +5,7 @@
 #
 %define		_rel	1
 Summary:	Attansic(R) L2 Fast Ethernet Adapter driver for Linux
-Summary(pl.UTF-8):	Sterownik do karty Attansic(R) L2 Fast Ethernet Adapter
+Summary(pl.UTF-8):	Sterownik do kart Attansic(R) L2 Fast Ethernet Adapter
 Name:		kernel%{_alt_kernel}-net-atl2
 Version:	1.4.0.20
 Release:	%{_rel}@%{_kernel_ver_str}
@@ -13,10 +13,9 @@ License:	GPL v2
 Group:		Base/Kernel
 Source0:	http://starowa.one.pl/~uzi/pld/atl2-%{version}.tar.gz
 # Source0-md5:	196771fa8e7164d4c9beabcfdf4058b5
-URL:		http://support.attansic.com
+URL:		http://www.attansic.com/
 %{?with_dist_kernel:BuildRequires:	kernel%{_alt_kernel}-module-build >= 3:2.6.20.2}
 BuildRequires:	rpmbuild(macros) >= 1.379
-BuildRequires:	unrar
 Requires(post,postun):	/sbin/depmod
 %if %{with dist_kernel}
 %requires_releq_kernel
@@ -28,8 +27,8 @@ Obsoletes:	linux-net-atl2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This package contains the Linux driver for the 
-Attansic(R) L2 Fast Ethernet network Adapter.
+This package contains the Linux driver for the Attansic(R) L2 Fast
+Ethernet Adapter.
 
 %description -l pl.UTF-8
 Ten pakiet zawiera sterownik dla Linuksa do kart sieciowych
