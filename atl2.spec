@@ -48,7 +48,7 @@ EOF
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%install_kernel_modules -m src/atl2 -d kernel/drivers/net -n atl2 -s current
+%install_kernel_modules -m src/atl2 -d kernel/drivers/net 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
