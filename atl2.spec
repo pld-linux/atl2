@@ -38,7 +38,7 @@ Attansic(R) L2 Fast Ethernet Adapter.
 %setup -q -n atl2-%{version}
 
 cat > src/Makefile <<'EOF'
-CFILES = at_main.c at_hw.c at_param.c at_ethtool.c kcompat.c  
+CFILES = at_main.c at_hw.c at_param.c at_ethtool.c kcompat.c
 obj-m := atl2.o
 atl2-objs := $(CFILES:.c=.o)
 EOF
@@ -48,7 +48,7 @@ EOF
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%install_kernel_modules -m src/atl2 -d kernel/drivers/net 
+%install_kernel_modules -m src/atl2 -d kernel/drivers/net
 
 %clean
 rm -rf $RPM_BUILD_ROOT
