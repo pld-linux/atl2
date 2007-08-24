@@ -34,7 +34,7 @@ Attansic(R) L2 Fast Ethernet Adapter.
 
 %prep
 %setup -q -n atl2-%{version}
-%patch0 -p0
+%patch0 -p1
 
 cat > src/Makefile <<'EOF'
 obj-m := atl2.o
@@ -42,7 +42,7 @@ atl2-objs := at_main.o at_hw.o at_param.o at_ethtool.o kcompat.o
 EOF
 
 %build
-%build_kernel_modules -C src -m atl2
+%build_kernel_modules -C src -m atl2 EXTRA_CFLAGS="-DDBG=0"
 
 %install
 rm -rf $RPM_BUILD_ROOT
