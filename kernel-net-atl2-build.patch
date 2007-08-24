@@ -1,0 +1,28 @@
+--- src/at_main.c.orig	2007-04-21 11:19:25.000000000 +0200
++++ src/at_main.c	2007-08-24 09:33:55.122013719 +0200
+@@ -1479,7 +1479,7 @@
+ static void
+ at_vlan_rx_kill_vid(struct net_device *netdev, u16 vid)
+ {
+-    struct at_adapter *adapter = netdev_priv(netdev);
++/*    struct at_adapter *adapter = netdev_priv(netdev);
+ 
+ //    DEBUGFUNC("at_vlan_rx_kill_vid !");
+     at_irq_disable(adapter);
+@@ -1499,7 +1500,7 @@
+ at_restore_vlan(struct at_adapter *adapter)
+ {
+ //    DEBUGFUNC("at_restore_vlan !");
+-    at_vlan_rx_register(adapter->netdev, adapter->vlgrp);
++/*    at_vlan_rx_register(adapter->netdev, adapter->vlgrp);
+ 
+     if(adapter->vlgrp) {
+         u16 vid;
+@@ -1509,6 +1510,7 @@
+             at_vlan_rx_add_vid(adapter->netdev, vid);
+         }
+     }
++*/
+ }
+ #endif
+ 
