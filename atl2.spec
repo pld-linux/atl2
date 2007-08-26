@@ -60,5 +60,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc atl2.7 COPYING readme release_note.txt ldistrib.txt
-#/etc/modprobe.d/%{_kernel_ver}/atl2.conf
 /lib/modules/%{_kernel_ver}/kernel/drivers/net/atl2*.ko*
