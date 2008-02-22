@@ -7,13 +7,12 @@
 Summary:	Attansic(R) L2 Fast Ethernet Adapter driver for Linux
 Summary(pl.UTF-8):	Sterownik do kart Attansic(R) L2 Fast Ethernet Adapter
 Name:		kernel%{_alt_kernel}-net-atl2
-Version:	1.4.0.20
+Version:	2.0.4
 Release:	%{_rel}@%{_kernel_ver_str}
 License:	GPL v2
 Group:		Base/Kernel
-Source0:	http://starowa.one.pl/~uzi/pld/atl2-%{version}.tar.gz
-# Source0-md5:	196771fa8e7164d4c9beabcfdf4058b5
-Patch0:		kernel-net-atl2-build.patch
+Source0:	http://people.redhat.com/csnook/atl2/atl2-%{version}.tar.bz2
+# Source0-md5:	22b22dc9d45b85549b002cf152c8ac27
 URL:		http://www.attansic.com/
 %{?with_dist_kernel:BuildRequires:	kernel%{_alt_kernel}-module-build >= 3:2.6.20.2}
 BuildRequires:	rpmbuild(macros) >= 1.379
@@ -34,19 +33,13 @@ Attansic(R) L2 Fast Ethernet Adapter.
 
 %prep
 %setup -q -n atl2-%{version}
-%patch0 -p1
-
-cat > src/Makefile <<'EOF'
-obj-m := atl2.o
-atl2-objs := at_main.o at_hw.o at_param.o at_ethtool.o kcompat.o
-EOF
 
 %build
-%build_kernel_modules -C src -m atl2 EXTRA_CFLAGS="-DDBG=0"
+%build_kernel_modules -m atl2 EXTRA_CFLAGS="-DDBG=0"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%install_kernel_modules -m src/atl2 -d kernel/drivers/net
+%install_kernel_modules -m atl2 -d kernel/drivers/net
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -59,5 +52,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc atl2.7 COPYING readme release_note.txt ldistrib.txt
 /lib/modules/%{_kernel_ver}/kernel/drivers/net/atl2*.ko*
