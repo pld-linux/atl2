@@ -4,16 +4,16 @@
 %bcond_with	verbose		# verbose build (V=1)
 #
 %define		pname	atl2
-%define		rel	12
+%define		rel	1
 Summary:	Attansic(R) L2 Fast Ethernet Adapter driver for Linux
 Summary(pl.UTF-8):	Sterownik do kart Attansic(R) L2 Fast Ethernet Adapter
 Name:		%{pname}%{_alt_kernel}
-Version:	2.0.4
+Version:	2.0.5
 Release:	%{rel}
 License:	GPL v2
 Group:		Base/Kernel
 Source0:	http://people.redhat.com/csnook/atl2/atl2-%{version}.tar.bz2
-# Source0-md5:	22b22dc9d45b85549b002cf152c8ac27
+# Source0-md5:	bbd5696cb6c7c6432d7338d783c408f2
 URL:		http://www.attansic.com/
 %{?with_dist_kernel:BuildRequires:	kernel%{_alt_kernel}-module-build >= 3:2.6.20.2}
 BuildRequires:	rpmbuild(macros) >= 1.379
