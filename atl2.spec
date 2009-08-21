@@ -4,7 +4,7 @@
 %bcond_with	verbose		# verbose build (V=1)
 #
 %define		pname	atl2
-%define		rel	25
+%define		rel	26
 Summary:	Attansic(R) L2 Fast Ethernet Adapter driver for Linux
 Summary(pl.UTF-8):	Sterownik do kart Attansic(R) L2 Fast Ethernet Adapter
 Name:		%{pname}%{_alt_kernel}
